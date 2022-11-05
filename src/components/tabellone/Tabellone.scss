@@ -1,0 +1,131 @@
+@import "../../Mixins.scss";
+
+$coloreNeon: rgb(255, 0, 217);
+
+.tabelloneWrapper {
+    @include flex();
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    width: 650px;
+    height: 650px;
+    border: 6px solid rgb(0, 0, 0);
+    box-shadow: 0 0 4px black;
+}
+
+.tabelloneWrapperClassico {
+    
+}
+
+.tabelloneWrapperFuturistico {
+
+}
+
+.tabelloneWrapper2 {
+    @include flex();
+    width: 620px;
+    height: 620px;
+    border: 3px solid rgb(0, 0, 0);
+}
+
+.tabelloneWrapper2Classico {
+    background-color: rgb(0, 94, 6);
+}
+
+.tabelloneWrapper2Futuristico {
+    background-color: rgb(255, 255, 255);
+}
+
+.tabelloneWrapper3 {
+    @include flex();
+    width: 450px;
+    height: 450px;
+}
+
+.tabelloneWrapper3Classico {
+    background-color: rgb(179, 251, 171);
+    border: 7px solid rgba(84, 125, 81, 0.454);
+}
+
+.tabelloneWrapper3Futuristico {
+    background-color: rgb(63, 0, 54);
+    border: 7px solid $coloreNeon;
+    box-shadow: inset 0 0 10px $coloreNeon;
+}
+
+.titoloCentrale {
+    position: absolute;
+    @include flex();
+    width: 300px;
+    height: 100px;
+    font-size: 22px;
+}
+
+.titoloCentraleClassico {
+    color: black;
+}
+
+.titoloCentraleFuturistico {
+    color:white;
+    text-shadow: 0 0 20px white;
+}
+
+.logoReactIcona {
+    position: absolute;
+    font-size: 350px;
+}
+
+.logoReactIconaClassico {
+    color: rgba(84, 125, 81, 0.454);
+}
+
+.logoReactIconaFuturistico {
+    color: rgba(255, 0, 149, 0.115);
+}
+
+.talloncini {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 110px;
+    position: relative;
+    transform: rotate(-45deg);
+    font-size: 12px;
+}
+
+.talloncini2 {
+    position: absolute;
+    bottom: 0;
+    width: 150px;
+    height: 90px;
+}
+
+.h3false {
+    color: white;
+}
+.h3true {
+    color: black;
+}
+
+.talloncini2Classico {
+    border: 3px dotted black;
+} 
+
+.talloncini2Futuristico {
+    border: 3px dotted rgb(255, 255, 255);
+}
+
+#probabilità {
+    display: flex;
+    right: 35px;
+    bottom: 110px;
+    align-items: flex-end;
+
+    .talloncini2 {
+        top: 0;
+    }
+}
+
+#imprevisti {
+    left: 35px;
+    top: 110px;
+}

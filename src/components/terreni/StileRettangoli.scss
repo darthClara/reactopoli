@@ -1,0 +1,130 @@
+@import "../../Mixins.scss";
+
+.stileRettangoliWrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+&:hover {
+    border: 3px solid black;
+    bottom: 50%;
+    right: 50%;
+    align-self: center;
+    justify-self: center;
+    width: 200%;
+    height: 200%;
+    position: relative;
+    border-radius: 10px;
+}}
+
+.stileRettangoliWrappertrue:hover {
+    background-color: rgb(179, 251, 171);
+    box-shadow: 0 0 30px black;
+}
+
+.stileRettangoliWrapperfalse:hover {
+    background-color: rgb(63, 0, 54);
+    box-shadow: 0 0 30px white;
+}
+
+.rettangoloClassico {
+    background-color: rgb(179, 251, 171);
+}
+
+.rettangoloFuturistico {
+    background-color: rgb(63, 0, 54);
+}
+
+.layoutGenericoTerreni {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.rettangolo2,
+.rettangolo3,
+.rettangolo4,
+.rettangolo5,
+.rettangolo6,
+.rettangolo7,
+.rettangolo8,
+.rettangolo9 {
+
+    .strisciaColorata {
+        position: relative;
+        margin-bottom: auto;
+        right: 0;
+        width: 100%;
+        height: 25%;
+    }
+
+}
+
+.rettangolo11,
+.rettangolo12,
+.rettangolo13,
+.rettangolo14,
+.rettangolo15,
+.rettangolo16,
+.rettangolo17,
+.rettangolo18 {
+
+    .strisciaColorata {
+        margin-left: auto;
+        position: relative;
+        right: 0;
+        width: 25%;
+        height: 100%;
+    }
+    & :hover {
+        rotate: -90deg;
+        .strisciaColorata {
+            rotate: 0deg;
+        }
+    }
+}
+
+.rettangolo20,
+.rettangolo21,
+.rettangolo22,
+.rettangolo23,
+.rettangolo24,
+.rettangolo25,
+.rettangolo26,
+.rettangolo27 {
+
+    .strisciaColorata {
+        position: relative;
+        width: 100%;
+        height: 25%;
+        margin-top: auto;
+    }
+    & :hover {
+        rotate: -180deg;
+        .strisciaColorata {
+            rotate: 0deg;
+        }
+    }
+}
+
+.rettangolo29,
+.rettangolo30,
+.rettangolo31,
+.rettangolo32,
+.rettangolo33,
+.rettangolo34,
+.rettangolo35,
+.rettangolo36 {
+
+    .strisciaColorata {
+        position: relative;
+        width: 25%;
+        height: 100%;
+        margin-right: auto;
+    }
+    & :hover {
+        rotate: 90deg;
+        .strisciaColorata {
+            rotate: 0deg;
+        }
+    }
+}

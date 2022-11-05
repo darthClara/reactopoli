@@ -1,0 +1,207 @@
+@import "../../Mixins.scss";
+
+.stileAngoliWrapper {
+    width: 100%;
+    height: 100%;
+
+    &:hover {
+        border: 3px solid black;
+        bottom: 50%;
+        right: 50%;
+        align-self: center;
+        justify-self: center;
+        background-color: rgb(179, 251, 171);
+        width: 200%;
+        height: 200%;
+        position: relative;
+        border-radius: 10px;
+        text-align: unset;
+    }
+}
+
+.stileAngoliWrappertrue:hover {
+    background-color: rgb(179, 251, 171);
+    box-shadow: 0 0 30px black;
+}
+
+.stileAngoliWrapperfalse:hover {
+    background-color: rgb(63, 0, 54);
+    box-shadow: 0 0 30px white;
+}
+
+.angoloClassico {
+    background-color: rgb(179, 251, 171);
+}
+
+.angoloFuturistico {
+    background-color: rgb(63, 0, 54);
+}
+
+// CARTE SINGOLE
+
+.angolo1 {
+    h2 {
+        position: relative;
+        bottom: -13%;
+        left: -5%;
+        line-height: 26px;
+        rotate: -15deg;
+        font-size: 25px;
+        font-family: 'Ruler Volume Inline', sans-serif;
+        font-weight: 100;
+        animation-name: pulsing;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+    }
+}
+
+.angolo1true {
+    font-weight: 100;
+    color: rgb(255, 0, 0);
+    text-shadow: 0 0 5px black;
+
+    &> :hover {
+        background-color: rgb(179, 251, 171);
+
+        h2 {
+            position: absolute;
+            top: 15px;
+            line-height: 55px;
+            font-size: 55px;
+            animation-name: pulsingOver;
+            animation-duration: 0.8s;
+            animation-iteration-count: infinite;
+        }
+    }
+}
+
+.angolo1false {
+    color: white;
+    background-color: rgb(0, 0, 0);
+    text-shadow:
+        0 0 10px rgb(255, 0, 212),
+        0 0 30px rgb(255, 0, 212),
+        0 0 50px rgb(255, 0, 212),
+        0 0 70px rgb(255, 0, 212);
+
+    &> :hover {
+        background-color: rgba(0, 0, 0, 0.439);
+
+        h2 {
+            text-shadow:
+                0 0 10px rgb(255, 0, 212),
+                0 0 30px rgb(255, 0, 212),
+                0 0 50px rgb(255, 0, 212),
+                0 0 70px rgb(255, 0, 212);
+            position: absolute;
+            top: 15px;
+            line-height: 55px;
+            font-size: 55px;
+            animation-name: pulsingOver;
+            animation-duration: 0.8s;
+            animation-iteration-count: infinite;
+        }
+    }
+
+    @keyframes pulsingOver {
+        0% {
+            font-size: 51px
+        }
+
+        5% {
+            font-size: 52px
+        }
+
+        10% {
+            font-size: 53px
+        }
+
+        15% {
+            font-size: 54px
+        }
+
+        20% {
+            font-size: 55px
+        }
+
+        40% {
+            font-size: 56px
+        }
+
+        50% {
+            font-size: 57px
+        }
+
+        60% {
+            font-size: 56px
+        }
+
+        70% {
+            font-size: 55px
+        }
+
+        80% {
+            font-size: 54px
+        }
+
+        90% {
+            font-size: 53px
+        }
+
+        100% {
+            font-size: 52px
+        }
+    }
+
+
+
+    @keyframes pulsing {
+        0% {
+            font-size: 21px
+        }
+
+        5% {
+            font-size: 22px
+        }
+
+        10% {
+            font-size: 23px
+        }
+
+        15% {
+            font-size: 24px
+        }
+
+        20% {
+            font-size: 25px
+        }
+
+        40% {
+            font-size: 26px
+        }
+
+        50% {
+            font-size: 27px
+        }
+
+        60% {
+            font-size: 26px
+        }
+
+        70% {
+            font-size: 25px
+        }
+
+        80% {
+            font-size: 24px
+        }
+
+        90% {
+            font-size: 23px
+        }
+
+        100% {
+            font-size: 22px
+        }
+    }
+}

@@ -1,0 +1,21 @@
+@import "./Mixins.scss";
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI'
+}
+
+.app {
+    width: 100vw;
+    height: 100vh;
+    @include flex();
+}
+
+.appClassico {
+    background-color: rgb(194, 199, 163);
+}
+
+.appFuturistico {
+    background-color: rgb(45, 10, 74)
+}

@@ -1,0 +1,184 @@
+.grigliaWrapper {
+    position: absolute;
+    width: 620px;
+    height: 620px;
+    border: 3px solid rgb(0, 0, 0);
+}
+
+.griglia {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+
+        "ang19 ret20 ret21 ret22 ret23 ret24 ret25 ret26 ret27 ang28"
+        "ret18 nul nul nul nul nul nul nul nul ret29"
+        "ret17 nul nul nul nul nul nul nul nul ret30"
+        "ret16 nul nul nul nul nul nul nul nul ret31"
+        "ret15 nul nul nul nul nul nul nul nul ret32"
+        "ret14 nul nul nul nul nul nul nul nul ret33"
+        "ret13 nul nul nul nul nul nul nul nul ret34"
+        "ret12 nul nul nul nul nul nul nul nul ret35"
+        "ret11 nul nul nul nul nul nul nul nul ret36"
+        "ang10 ret9 ret8 ret7 ret6 ret5 ret4 ret3 ret2 ang1";
+
+    grid-template-rows: 1.3fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1.3fr;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1.3fr;
+
+    >div {
+        text-align: center;
+        border: 2px solid rgb(0, 0, 0);
+    }
+}
+
+.rettangolo2 {
+    grid-area: ret2;
+}
+
+.rettangolo3 {
+    grid-area: ret3;
+}
+
+.rettangolo4 {
+    grid-area: ret4;
+}
+
+.rettangolo5 {
+    grid-area: ret5;
+}
+
+.rettangolo6 {
+    grid-area: ret6;
+}
+
+.rettangolo7 {
+    grid-area: ret7;
+}
+
+.rettangolo8 {
+    grid-area: ret8;
+}
+
+.rettangolo9 {
+    grid-area: ret9;
+}
+
+.rettangolo11 {
+    grid-area: ret11;
+}
+
+.rettangolo12 {
+    grid-area: ret12;
+}
+
+.rettangolo13 {
+    grid-area: ret13;
+}
+
+.rettangolo14 {
+    grid-area: ret14;
+}
+
+.rettangolo15 {
+    grid-area: ret15;
+}
+
+.rettangolo16 {
+    grid-area: ret16;
+}
+
+.rettangolo17 {
+    grid-area: ret17;
+}
+
+.rettangolo18 {
+    grid-area: ret18;
+}
+
+.rettangolo20 {
+    grid-area: ret20;
+}
+
+.rettangolo21 {
+    grid-area: ret21;
+}
+
+.rettangolo22 {
+    grid-area: ret22;
+}
+
+.rettangolo23 {
+    grid-area: ret23;
+}
+
+.rettangolo24 {
+    grid-area: ret24;
+}
+
+.rettangolo25 {
+    grid-area: ret25;
+}
+
+.rettangolo26 {
+    grid-area: ret26;
+}
+
+.rettangolo27 {
+    grid-area: ret27;
+}
+
+.rettangolo28 {
+    grid-area: ret28;
+}
+
+.rettangolo29 {
+    grid-area: ret29;
+}
+
+.rettangolo30 {
+    grid-area: ret30;
+}
+
+.rettangolo31 {
+    grid-area: ret31;
+}
+
+.rettangolo32 {
+    grid-area: ret32;
+}
+
+.rettangolo33 {
+    grid-area: ret33;
+}
+
+.rettangolo34 {
+    grid-area: ret34;
+}
+
+.rettangolo35 {
+    grid-area: ret35;
+}
+
+.rettangolo36 {
+    grid-area: ret36;
+}
+
+.angolo1 {
+    grid-area: ang1;
+}
+
+.angolo10 {
+    grid-area: ang10;
+}
+
+.angolo19 {
+    grid-area: ang19;
+}
+
+.angolo28 {
+    grid-area: ang28;
+}
+
+.nul {
+    grid-area: nul;
+}
