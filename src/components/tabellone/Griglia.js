@@ -6,7 +6,8 @@ import StileRettangoli from "../terreni/StileRettangoli"
 import StileAngoli from "../terreni/StileAngoli"
 
 export default function Griglia({ statoTema }) {
-  function generatoreCaselle() {
+ 
+    function generatoreCaselle() {
     let datiRettangoli = DatiRettangoli.map((terreno) => {
       return terreno.rettangoli
     })

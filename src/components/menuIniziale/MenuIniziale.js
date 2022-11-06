@@ -1,13 +1,21 @@
 import React, { useState } from "react"
 import "./MenuIniziale.scss"
+import "../pedine/DatiPedine"
+import { DatiPedine } from "../pedine/DatiPedine"
+import "../pedine/StilePedine.scss"
 
-export default function MenuIniziale({ statoTema }) {
+export default function MenuIniziale({pedinaUtente}) {
   const [menuAperto, setMenuAperto] = useState(true)
   const [nome, setNome] = useState("")
-  const [pedina, setPedina] = useState("")
+  const [pedinaScelta, setPedinaScelta] = useState("")
 
   function gestoreClickNuovaPartita() {
-    setMenuAperto(false)
+    if ((nome !=="") && (pedinaScelta !=="")) {
+        setMenuAperto(false)
+        pedinaUtente(pedinaScelta)
+    } else {
+        alert("INSERISCI UN NOME E SCEGLI LA TUA PEDINA")
+    }
   }
 
   function gestoreInputNome(e) {
@@ -15,12 +23,31 @@ export default function MenuIniziale({ statoTema }) {
     setNome(nome)
   }
 
-  function pedine() {
-    return (
-        <div>
-            <input type="checkbox"></input>
-        </div>
-    )
+  function gestoreClickPedina(e) {
+    let pedinaCliccata = e.currentTarget.value;
+    setPedinaScelta(pedinaCliccata)
+    console.log(pedinaScelta)
+  }
+
+  function generatorePedine() {
+    let pedine = DatiPedine.map((pedina) => {
+      return (
+        <button
+          onClick={gestoreClickPedina}
+          value={pedina.nome}
+          className={`pedinaWrapper pedina${pedina.nome}Wrapper`}
+        >
+          {pedina.immagine && (
+            <img
+              className={`immaginePedina immaginePedina${pedina.nome}`}
+              src={pedina.immagine}
+            ></img>
+          )}
+        </button>
+      )
+    })
+
+    return pedine
   }
 
   return (
@@ -35,11 +62,12 @@ export default function MenuIniziale({ statoTema }) {
       ></input>
       <div className="selettorePedineWrapper">
         <h2>SCEGLI LA TUA PEDINA:</h2>
-        <div className="selettorePedineWrapper2">
-            {pedine}
-        </div>
+        <div className="selettorePedineWrapper2">{generatorePedine()}</div>
       </div>
-      <button className="btnNuovaPartita" onClick={nome && pedina && gestoreClickNuovaPartita}>
+      <button
+        className="btnNuovaPartita"
+        onClick={gestoreClickNuovaPartita}
+      >
         NUOVA PARTITA
       </button>
     </div>

@@ -8,15 +8,22 @@ import "./components/terreni/StileRettangoli.scss"
 import MenuIniziale from "./components/menuIniziale/MenuIniziale"
 
 function App() {
-  const [tema, setTema] = useState(false)
+  const [tema, setTema] = useState(false);
+  const [pedina, setPedina] = useState([]);
 
-  const statoTema = (TemaRicevutoDaToggle) => {
-    setTema(TemaRicevutoDaToggle)
+  const statoTema = (temaRicevutoDaToggle) => {
+    setTema(temaRicevutoDaToggle)
   }
+
+  const pedinaUtente = (pedinaRicevutaDaMenuIniziale) => {
+    setPedina(pedinaRicevutaDaMenuIniziale)
+  }
+
+  console.log(pedina)
 
   return (
     <div className={tema ? "app appClassico" : "app appFuturistico"}>
-      <MenuIniziale statoTema={tema}/>
+      <MenuIniziale pedinaUtente={pedinaUtente}/>
       <SchermoDadi statoTema={tema}/>
       <Togglestile statoTema={statoTema}/>
       <Tabellone statoTema={tema}/>

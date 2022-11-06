@@ -1,5 +1,3 @@
-import StileAngoli from "./StileAngoli";
-
 export const DatiAngoli = [
   {
     angoli: {

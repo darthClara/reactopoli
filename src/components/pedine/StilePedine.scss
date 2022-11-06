@@ -1,0 +1,24 @@
+@import "../../Mixins.scss";
+
+.pedinaWrapper {
+    @include flex();
+    z-index: 100;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 100%;
+    overflow: hidden;
+    .immaginePedina {
+        position: relative;
+        width: 100%;
+    }
+}
+
+.immaginePedinasmiley {
+  width: 122% !important;
+}
+
+.immaginePedinadollaro {
+    width: 175% !important;
+    left: 3px;
+}
