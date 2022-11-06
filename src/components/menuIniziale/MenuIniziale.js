@@ -4,15 +4,15 @@ import "../pedine/DatiPedine"
 import { DatiPedine } from "../pedine/DatiPedine"
 import "../pedine/StilePedine.scss"
 
-export default function MenuIniziale({pedinaUtente}) {
+export default function MenuIniziale({utenteCreato}) {
   const [menuAperto, setMenuAperto] = useState(true)
-  const [nome, setNome] = useState("")
+  const [nomeInserito, setNome] = useState("")
   const [pedinaScelta, setPedinaScelta] = useState("")
 
   function gestoreClickNuovaPartita() {
-    if ((nome !=="") && (pedinaScelta !=="")) {
+    if ((nomeInserito !=="") && (pedinaScelta !=="")) {
         setMenuAperto(false)
-        pedinaUtente(pedinaScelta)
+        utenteCreato(pedinaScelta, nomeInserito)
     } else {
         alert("INSERISCI UN NOME E SCEGLI LA TUA PEDINA")
     }

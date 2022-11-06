@@ -9,24 +9,23 @@ import MenuIniziale from "./components/menuIniziale/MenuIniziale"
 
 function App() {
   const [tema, setTema] = useState(false);
-  const [pedina, setPedina] = useState([]);
+  const [utente, setUtente] = useState("");
 
   const statoTema = (temaRicevutoDaToggle) => {
     setTema(temaRicevutoDaToggle)
   }
 
-  const pedinaUtente = (pedinaRicevutaDaMenuIniziale) => {
-    setPedina(pedinaRicevutaDaMenuIniziale)
+  const utenteCreato = (pedinaScelta, nomeInserito ) => {
+    return setUtente({pedina: pedinaScelta, nome: nomeInserito})
   }
-
-  console.log(pedina)
 
   return (
     <div className={tema ? "app appClassico" : "app appFuturistico"}>
-      <MenuIniziale pedinaUtente={pedinaUtente}/>
+      <MenuIniziale utenteCreato={utenteCreato}/>
       <SchermoDadi statoTema={tema}/>
       <Togglestile statoTema={statoTema}/>
       <Tabellone statoTema={tema}/>
+      {/* <Utente/> */}
     </div>
   )
 }
