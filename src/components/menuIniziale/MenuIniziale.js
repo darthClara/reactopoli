@@ -5,7 +5,8 @@ import { DatiPedine } from "../pedine/DatiPedine"
 import "../pedine/StilePedine.scss"
 
 export default function MenuIniziale({utenteCreato}) {
-  const [menuAperto, setMenuAperto] = useState(true)
+    // modificare il false passato come parametro per rivedere il menu
+  const [menuAperto, setMenuAperto] = useState(false)
   const [nomeInserito, setNome] = useState("")
   const [pedinaScelta, setPedinaScelta] = useState("")
 

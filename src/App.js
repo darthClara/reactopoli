@@ -6,6 +6,7 @@ import Tabellone from "./components/tabellone/Tabellone"
 import Togglestile from "./components/togglestile/Togglestile"
 import "./components/terreni/StileRettangoli.scss"
 import MenuIniziale from "./components/menuIniziale/MenuIniziale"
+import Utente from "./components/utente/Utente"
 
 function App() {
   const [tema, setTema] = useState(false);
@@ -25,7 +26,7 @@ function App() {
       <SchermoDadi statoTema={tema}/>
       <Togglestile statoTema={statoTema}/>
       <Tabellone statoTema={tema}/>
-      {/* <Utente/> */}
+      <Utente/>
     </div>
   )
 }

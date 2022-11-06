@@ -4,6 +4,7 @@ import { DatiAngoli } from "../terreni/DatiAngoli"
 import { DatiRettangoli } from "../terreni/DatiRettangoli"
 import StileRettangoli from "../terreni/StileRettangoli"
 import StileAngoli from "../terreni/StileAngoli"
+import Utente from "../utente/Utente"
 
 export default function Griglia({ statoTema }) {
  
@@ -15,7 +16,7 @@ export default function Griglia({ statoTema }) {
     const rettangoliMontati = datiRettangoli.map((terreno) => (
       <div
         className={
-          `rettangolo${terreno.numero} ` +
+          `rettangolo${terreno.numero} ` + `terreno${terreno.numero} `+
           (statoTema ? `rettangoloClassico` : "rettangoloFuturistico")
         }
       >
@@ -30,7 +31,7 @@ export default function Griglia({ statoTema }) {
     const angoliMontati = datiAngoli.map((terreno) => (
       <div
         className={
-          `angolo${terreno.numero} ` +
+          `angolo${terreno.numero} ` + `terreno${terreno.numero} ` +
           (statoTema ? "angoloClassico " : "angoloFuturistico ") 
           + (`angolo${terreno.numero}${statoTema}`) 
         }
@@ -47,6 +48,8 @@ export default function Griglia({ statoTema }) {
       </div>
     )
   }
+
+  
 
   return (
     <div
