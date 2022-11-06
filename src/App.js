@@ -16,8 +16,8 @@ function App() {
     setTema(temaRicevutoDaToggle)
   }
 
-  const utenteCreato = (pedinaScelta, nomeInserito ) => {
-    return setUtente({pedina: pedinaScelta, nome: nomeInserito})
+  const utenteCreato = (pedinaScelta, nomeInserito, idDellaPedina) => {
+    return setUtente({pedina: pedinaScelta, nome: nomeInserito, id: idDellaPedina})
   }
 
   return (
@@ -26,7 +26,7 @@ function App() {
       <SchermoDadi statoTema={tema}/>
       <Togglestile statoTema={statoTema}/>
       <Tabellone statoTema={tema}/>
-      <Utente/>
+      <Utente nome={utente.nome} immagine={utente.pedina} id={utente.id}/>
     </div>
   )
 }

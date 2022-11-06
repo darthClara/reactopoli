@@ -5,15 +5,15 @@ import { DatiPedine } from "../pedine/DatiPedine"
 import "../pedine/StilePedine.scss"
 
 export default function MenuIniziale({utenteCreato}) {
-    // modificare il false passato come parametro per rivedere il menu
-  const [menuAperto, setMenuAperto] = useState(false)
+  const [menuAperto, setMenuAperto] = useState(true)
   const [nomeInserito, setNome] = useState("")
   const [pedinaScelta, setPedinaScelta] = useState("")
+  const [idDellaPedina, setIdDellaPedina] = useState("")
 
   function gestoreClickNuovaPartita() {
     if ((nomeInserito !=="") && (pedinaScelta !=="")) {
         setMenuAperto(false)
-        utenteCreato(pedinaScelta, nomeInserito)
+        utenteCreato(pedinaScelta, nomeInserito, idDellaPedina)
     } else {
         alert("INSERISCI UN NOME E SCEGLI LA TUA PEDINA")
     }
@@ -26,8 +26,9 @@ export default function MenuIniziale({utenteCreato}) {
 
   function gestoreClickPedina(e) {
     let pedinaCliccata = e.currentTarget.value;
+    let idDellaPedinaCliccata = e.currentTarget.id;
     setPedinaScelta(pedinaCliccata)
-    console.log(pedinaScelta)
+    setIdDellaPedina(idDellaPedinaCliccata)
   }
 
   function generatorePedine() {
@@ -36,6 +37,7 @@ export default function MenuIniziale({utenteCreato}) {
         <button
           onClick={gestoreClickPedina}
           value={pedina.nome}
+          id={pedina.id}
           className={`pedinaWrapper pedina${pedina.nome}Wrapper`}
         >
           {pedina.immagine && (

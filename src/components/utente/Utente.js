@@ -1,10 +1,14 @@
-import React, {useState} from "react";
+import React, { useState } from "react"
 import "./Utente.scss"
+import { DatiPedine } from "../pedine/DatiPedine"
 
-export default function Utente() {
-    return (
-        <div className="utenteWrapper">
-            
-        </div>
-    )
+export default function Utente(props) {
+  let numero = props.id ? props.id : 0
+  let immagine = <img className={`immaginePedina immaginePedina${props.immagine}`} src={DatiPedine[numero].immagine}/>
+
+  return (
+    <div className={`utenteWrapper ` + `utenteWrapper${props.nome}`}>
+      {immagine}
+    </div>
+  )
 }
