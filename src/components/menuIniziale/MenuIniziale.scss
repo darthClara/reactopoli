@@ -1,0 +1,80 @@
+@import "../../Mixins.scss";
+
+.menuInizialeWrapper {
+    @include flex();
+    flex-direction: column;
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    width: 99%;
+    height: 99%;
+    border-radius: 20px;
+    box-shadow: 0 0 100px rgb(0, 0, 0);
+    border: 5px solid rgb(134, 97, 130);
+    color: white;
+    justify-content: space-evenly;
+}
+
+.menuInizialeWrapperfalse {
+    display: none;
+}
+
+.menuInizialeWrappertrue {}
+
+.inputNome {
+    margin-top: 20px;
+    width: 70%;
+    height: 100px;
+    @include flex();
+    border-radius: 50px;
+    background-color: rgb(0, 0, 0);
+    border: 5px solid rgb(185, 0, 185);
+    color: white;
+    font-size: 200%;
+    min-width: 200px;
+    text-align: center;
+
+    &:hover {
+        box-shadow: 0 0 80px white;
+        background-color: rgb(74, 33, 64);
+    }
+}
+
+.selettorePedineWrapper {
+    width: 100%;
+    height: auto;
+    @include flex();
+    flex-direction: column;
+    background-color: rgb(134, 97, 130);
+    padding: 20px;
+    font-size: 150%;
+
+    .selettorePedineWrapper2 {
+        margin-top: 20px;
+        width: 70%;
+        height: 100px;
+        @include flex();
+        border-radius: 50px;
+        background-color: rgb(0, 0, 0);
+        border: 5px solid rgb(185, 0, 185);
+        color: white;
+        min-width: 200px;
+    }
+}
+
+.btnNuovaPartita {
+    margin-top: 20px;
+    width: 70%;
+    height: 100px;
+    @include flex();
+    border-radius: 50px;
+    background-color: rgb(0, 0, 0);
+    border: 5px solid rgb(185, 0, 185);
+    color: white;
+    font-size: 200%;
+    min-width: 200px;
+
+    &:hover {
+        box-shadow: 0 0 80px white;
+        background-color: rgb(74, 33, 64);
+    }
+}
