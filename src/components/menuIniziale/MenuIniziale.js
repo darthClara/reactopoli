@@ -4,18 +4,18 @@ import "../pedine/DatiPedine"
 import { DatiPedine } from "../pedine/DatiPedine"
 import "../pedine/StilePedine.scss"
 
-export default function MenuIniziale({utenteCreato}) {
+export default function MenuIniziale({ utenteCreato }) {
   const [menuAperto, setMenuAperto] = useState(true)
   const [nomeInserito, setNome] = useState("")
   const [pedinaScelta, setPedinaScelta] = useState("")
   const [idDellaPedina, setIdDellaPedina] = useState("")
 
   function gestoreClickNuovaPartita() {
-    if ((nomeInserito !=="") && (pedinaScelta !=="")) {
-        setMenuAperto(false)
-        utenteCreato(pedinaScelta, nomeInserito, idDellaPedina)
+    if (nomeInserito !== "" && pedinaScelta !== "") {
+      setMenuAperto(false)
+      utenteCreato(pedinaScelta, nomeInserito, idDellaPedina)
     } else {
-        alert("INSERISCI UN NOME E SCEGLI LA TUA PEDINA")
+      alert("INSERISCI UN NOME E SCEGLI LA TUA PEDINA")
     }
   }
 
@@ -25,10 +25,14 @@ export default function MenuIniziale({utenteCreato}) {
   }
 
   function gestoreClickPedina(e) {
-    let pedinaCliccata = e.currentTarget.value;
-    let idDellaPedinaCliccata = e.currentTarget.id;
-    setPedinaScelta(pedinaCliccata)
+    let pedinaCliccata = e.currentTarget
+    let idDellaPedinaCliccata = e.currentTarget.id
+    let wrapperPadre = e.currentTarget.parentElement
+
+    setPedinaScelta(pedinaCliccata.value)
     setIdDellaPedina(idDellaPedinaCliccata)
+    wrapperPadre.style.display = "none"
+    wrapperPadre.parentElement.appendChild(pedinaCliccata.firstChild)
   }
 
   function generatorePedine() {
@@ -49,7 +53,6 @@ export default function MenuIniziale({utenteCreato}) {
         </button>
       )
     })
-
     return pedine
   }
 
@@ -64,13 +67,9 @@ export default function MenuIniziale({utenteCreato}) {
         placeholder="COME TI CHIAMI?"
       ></input>
       <div className="selettorePedineWrapper">
-        <h2>SCEGLI LA TUA PEDINA:</h2>
         <div className="selettorePedineWrapper2">{generatorePedine()}</div>
       </div>
-      <button
-        className="btnNuovaPartita"
-        onClick={gestoreClickNuovaPartita}
-      >
+      <button className="btnNuovaPartita" id={(nomeInserito !== "") && (pedinaScelta !== "") && "bottoneVerde"} onClick={gestoreClickNuovaPartita}>
         NUOVA PARTITA
       </button>
     </div>
