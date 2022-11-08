@@ -4,11 +4,12 @@
 .utenteWrapper {
     @include flex();
     position: absolute;
-    width: 40px;
-    height: 40px;
-    background-color: red;
+    width: 60px;
+    height: 60px;
     border-radius: 100%;
     user-select: none;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    overflow: hidden;
 }
 
 .immaginePedina {

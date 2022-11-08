@@ -4,7 +4,7 @@ import "./Utente.scss"
 import { DatiPedine } from "../pedine/DatiPedine"
 import { useDrag } from "react-use-gesture"
 
-export default function Utente(props) {
+export default function UtenteDraggabile(props) {
   const posizioneUtente = useSpring({ x: 0, y: 0});
   const bindPosizioneUtente = useDrag((params) => {
     posizioneUtente.x.set(params.offset[0]);

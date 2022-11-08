@@ -4,7 +4,7 @@ import { DatiAngoli } from "../terreni/DatiAngoli"
 import { DatiRettangoli } from "../terreni/DatiRettangoli"
 import StileRettangoli from "../terreni/StileRettangoli"
 import StileAngoli from "../terreni/StileAngoli"
-import Utente from "../utente/Utente"
+import Utente from "../utente/UtenteDraggabile"
 
 export default function Griglia({ statoTema }) {
  
