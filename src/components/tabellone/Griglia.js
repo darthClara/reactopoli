@@ -21,7 +21,7 @@ export default function Griglia(props) {
           (props.statoTema ? `rettangoloClassico` : "rettangoloFuturistico")
         }
       >
-        <StileRettangoli nome={props.nome} immagine={props.pedina} id={props.id} statoTema={props.statoTema} luce={props.statoTema} colore={terreno.colore} tipo={terreno.tipo} />
+        <StileRettangoli posizione={props.posizione == terreno.numero ? "yes" : "no" } nome={props.nome} immagine={props.pedina} id={props.id} statoTema={props.statoTema} luce={props.statoTema} colore={terreno.colore} tipo={terreno.tipo} />
       </div>
     ))
 

@@ -1,5 +1,6 @@
 import React from "react"
 import "./StileRettangoli.scss"
+import UtenteAutomatico from "../utente/UtenteAutomatico"
 
 export default function StileRettangoli(props) {
   let contenuto = () => {
@@ -25,5 +26,8 @@ export default function StileRettangoli(props) {
     }
   }
 
-  return <div className={`stileRettangoliWrapper ` + `stileRettangoliWrapper${props.luce}`}>{contenuto()}</div>
+  return <div className={`stileRettangoliWrapper ` + `stileRettangoliWrapper${props.luce}`}>
+    {contenuto()}
+    {props.posizione == "yes" && <UtenteAutomatico nome={props.nome} immagine={props.immagine} id={props.id}/>}
+    </div>
 }
