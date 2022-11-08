@@ -4,9 +4,8 @@ import { DatiAngoli } from "../terreni/DatiAngoli"
 import { DatiRettangoli } from "../terreni/DatiRettangoli"
 import StileRettangoli from "../terreni/StileRettangoli"
 import StileAngoli from "../terreni/StileAngoli"
-import Utente from "../utente/UtenteDraggabile"
 
-export default function Griglia({ statoTema }) {
+export default function Griglia(props) {
  
     function generatoreCaselle() {
     let datiRettangoli = DatiRettangoli.map((terreno) => {
@@ -17,10 +16,10 @@ export default function Griglia({ statoTema }) {
       <div
         className={
           `rettangolo${terreno.numero} ` + `terreno${terreno.numero} `+
-          (statoTema ? `rettangoloClassico` : "rettangoloFuturistico")
+          (props.statoTema ? `rettangoloClassico` : "rettangoloFuturistico")
         }
       >
-        <StileRettangoli luce={statoTema} colore={terreno.colore} tipo={terreno.tipo} />
+        <StileRettangoli nome={props.nome} immagine={props.pedina} id={props.id} statoTema={props.statoTema} luce={props.statoTema} colore={terreno.colore} tipo={terreno.tipo} />
       </div>
     ))
 
@@ -32,11 +31,11 @@ export default function Griglia({ statoTema }) {
       <div
         className={
           `angolo${terreno.numero} ` + `terreno${terreno.numero} ` +
-          (statoTema ? "angoloClassico " : "angoloFuturistico ") 
-          + (`angolo${terreno.numero}${statoTema}`) 
+          (props.statoTema ? "angoloClassico " : "angoloFuturistico ") 
+          + (`angolo${terreno.numero}${props.statoTema}`) 
         }
       >
-        <StileAngoli testo={terreno.testo} tema={statoTema}/>
+        <StileAngoli nome={props.nome} immagine={props.pedina} id={props.id} statoTema={props.statoTema} testo={terreno.testo} tema={props.statoTema}/>
       </div>
     ))
 
@@ -49,13 +48,11 @@ export default function Griglia({ statoTema }) {
     )
   }
 
-  
-
   return (
     <div
       className={
         "grigliaWrapper " +
-        (statoTema ? `grigliaWrapperClassico` : "grigliaWrapperFuturistico")
+        (props.statoTema ? `grigliaWrapperClassico` : "grigliaWrapperFuturistico")
       }
     >
       {generatoreCaselle()}

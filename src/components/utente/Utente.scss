@@ -4,8 +4,8 @@
 .utenteWrapper {
     @include flex();
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 35px;
+    height: 35px;
     border-radius: 100%;
     user-select: none;
     box-shadow: 0 0 10px rgb(0, 0, 0);
