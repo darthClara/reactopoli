@@ -6,7 +6,9 @@ import StileRettangoli from "../terreni/StileRettangoli"
 import StileAngoli from "../terreni/StileAngoli"
 
 export default function Griglia(props) {
+
  
+
     function generatoreCaselle() {
     let datiRettangoli = DatiRettangoli.map((terreno) => {
       return terreno.rettangoli
@@ -35,7 +37,7 @@ export default function Griglia(props) {
           + (`angolo${terreno.numero}${props.statoTema}`) 
         }
       >
-        <StileAngoli nome={props.nome} immagine={props.pedina} id={props.id} statoTema={props.statoTema} testo={terreno.testo} tema={props.statoTema}/>
+        <StileAngoli posizione={props.posizione == terreno.numero ? "yes" : "no" } nome={props.nome} immagine={props.pedina} id={props.id} statoTema={props.statoTema} testo={terreno.testo}/>
       </div>
     ))
 

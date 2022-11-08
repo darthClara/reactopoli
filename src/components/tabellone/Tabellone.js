@@ -7,7 +7,7 @@ export default function Tabellone(props) {
 
   return (
     <div className={"tabelloneWrapper " + (props.statoTema ? "tabelloneWrapperClassico" : "tabelloneWrapperFuturistico")}>
-      <Griglia nome={props.nome} immagine={props.pedina} id={props.id} statoTema={props.statoTema}/>
+      <Griglia nome={props.nome} immagine={props.pedina} id={props.id} statoTema={props.statoTema} posizione={props.posizione}/>
       <div className={"tabelloneWrapper2 " + (props.statoTema ? "tabelloneWrapper2Classico" : "tabelloneWrapper2Futuristico")}>
         <div className={"tabelloneWrapper3 " + (props.statoTema ? "tabelloneWrapper3Classico" : "tabelloneWrapper3Futuristico")}>
           <div className="talloncini" id="probabilità">

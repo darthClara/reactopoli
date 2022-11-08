@@ -34,7 +34,7 @@ function App() {
       <MenuIniziale utenteCreato={utenteCreato}/>
       <SchermoDadi statoTema={tema}/>
       <Togglestile statoTema={statoTema}/>
-      <Tabellone nome={utente.nome} immagine={utente.pedina} id={utente.id} statoTema={tema}/>
+      <Tabellone nome={utente.nome} immagine={utente.pedina} id={utente.id} statoTema={tema} posizione={1}/>
       {/* <UtenteAutomatico nome={utente.nome} immagine={utente.pedina} id={utente.id} posizione={1}/> */}
       {/* <UtenteDraggabile nome={utente.nome} immagine={utente.pedina} id={utente.id}/> */}
     </div>
