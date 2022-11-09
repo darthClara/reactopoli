@@ -9,9 +9,9 @@ import MenuIniziale from "./components/menuIniziale/MenuIniziale"
 import { type } from "@testing-library/user-event/dist/type"
 
 function App() {
-  const [tema, setTema] = useState(false);
-  const [utente, setUtente] = useState("");
-  const [posizioneDellaPedina, setPosizioneDellaPedina] = useState(1);
+  const [tema, setTema] = useState(false)
+  const [utente, setUtente] = useState("")
+  const [posizioneDellaPedina, setPosizioneDellaPedina] = useState(1)
   const [risultatoDeiDadi, setRisultatoDeiDadi] = useState(1)
 
   const statoTema = (temaRicevutoDaToggle) => {
@@ -19,30 +19,39 @@ function App() {
   }
 
   const utenteCreato = (pedinaScelta, nomeInserito, idDellaPedina) => {
-    return setUtente({pedina: pedinaScelta, nome: nomeInserito, id: idDellaPedina})
+    return setUtente({
+      pedina: pedinaScelta,
+      nome: nomeInserito,
+      id: idDellaPedina,
+    })
   }
 
-function muovi() {
-    let risultato = window.sessionStorage.getItem("risultatoDadi")
-    setPosizioneDellaPedina(risultato)
-    let parsato = parseInt(risultato)
-    let somma = parsato + risultatoDeiDadi
-    setRisultatoDeiDadi(somma)
-    if (somma >= 37) {
-    let resto = (somma - 36)
-    console.log(resto)
-    setRisultatoDeiDadi(resto)
-    setPosizioneDellaPedina(1)
+  function muovi() {
+      let risultato = window.sessionStorage.getItem("risultatoDadi")
+      setPosizioneDellaPedina(risultato)
+      let parsato = parseInt(risultato)
+      let somma = parsato + risultatoDeiDadi
+      setRisultatoDeiDadi(somma)
+      if (somma >= 37) {
+      let resto = (somma - 36)
+      console.log(resto)
+      setRisultatoDeiDadi(resto)
+      setPosizioneDellaPedina(1)
+      }
     }
-  }
-  
-  
+
   return (
     <div className={tema ? "app appClassico" : "app appFuturistico"}>
-      <MenuIniziale utenteCreato={utenteCreato}/>
-      <SchermoDadi statoTema={tema}/>
-      <Togglestile statoTema={statoTema}/>
-      <Tabellone nome={utente.nome} immagine={utente.pedina} id={utente.id} statoTema={tema} posizione={risultatoDeiDadi}/>
+      <MenuIniziale utenteCreato={utenteCreato} />
+      <SchermoDadi statoTema={tema} />
+      <Togglestile statoTema={statoTema} />
+      <Tabellone
+        nome={utente.nome}
+        immagine={utente.pedina}
+        id={utente.id}
+        statoTema={tema}
+        posizione={risultatoDeiDadi}
+      />
       <button onClick={muovi}>MUOVI</button>
     </div>
   )
