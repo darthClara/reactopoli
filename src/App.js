@@ -28,6 +28,12 @@ function muovi() {
     let parsato = parseInt(risultato)
     let somma = parsato + risultatoDeiDadi
     setRisultatoDeiDadi(somma)
+    if (somma >= 37) {
+    let resto = (somma - 36)
+    console.log(resto)
+    setRisultatoDeiDadi(resto)
+    setPosizioneDellaPedina(1)
+    }
   }
   
   
