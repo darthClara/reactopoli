@@ -43,10 +43,14 @@ export default function SchermoDadi(props) {
     dadoDue()
   }
 
-  console.log(numeroUscito1 + numeroUscito2)
+  let risultato = numeroUscito1 + numeroUscito2
+    window.sessionStorage.setItem("risultatoDadi", risultato)
+    console.log(risultato)
 
   return (
-    <div className={`schermoDadiWrapper ` + `schermoDadiWrapper${props.statoTema}`}>
+    <div
+      className={`schermoDadiWrapper ` + `schermoDadiWrapper${props.statoTema}`}
+    >
       <div className="schermoDadi">
         {iconaDado1}
         {iconaDado2}

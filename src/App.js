@@ -19,12 +19,19 @@ function App() {
     return setUtente({pedina: pedinaScelta, nome: nomeInserito, id: idDellaPedina})
   }
 
+  let risultato = window.sessionStorage.getItem("risultatoDadi")
+  
+  
+  function risultatoDadi() {
+    return risultato ? risultato : 1
+  } 
+
   return (
     <div className={tema ? "app appClassico" : "app appFuturistico"}>
       <MenuIniziale utenteCreato={utenteCreato}/>
       <SchermoDadi statoTema={tema}/>
       <Togglestile statoTema={statoTema}/>
-      <Tabellone nome={utente.nome} immagine={utente.pedina} id={utente.id} statoTema={tema} posizione={1}/>
+      <Tabellone nome={utente.nome} immagine={utente.pedina} id={utente.id} statoTema={tema} posizione={risultatoDadi()}/>
     </div>
   )
 }
