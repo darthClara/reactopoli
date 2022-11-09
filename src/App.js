@@ -6,7 +6,6 @@ import Tabellone from "./components/tabellone/Tabellone"
 import Togglestile from "./components/togglestile/Togglestile"
 import "./components/terreni/StileRettangoli.scss"
 import MenuIniziale from "./components/menuIniziale/MenuIniziale"
-import { type } from "@testing-library/user-event/dist/type"
 
 function App() {
   const [tema, setTema] = useState(false)
@@ -34,13 +33,17 @@ function App() {
     let somma = parsato + risultatoDeiDadi
     setRisultatoDeiDadi(somma)
     setStop(true)
-    setTimeout(function() {setStop(false)}, 1000)
     if (somma >= 37) {
       let resto = somma - 36
       setRisultatoDeiDadi(resto)
       setPosizioneDellaPedina(1)
     }
   }
+
+{useEffect(() => {tempoCheSiVedeIlRisultato()}, [risultatoDeiDadi])}
+
+  function tempoCheSiVedeIlRisultato() {
+    setTimeout(function() {setStop(false)}, 1000)}
 
   return (
     <div className={tema ? "app appClassico" : "app appFuturistico"}>
