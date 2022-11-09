@@ -1,4 +1,4 @@
-import React, { createElement, useState } from "react"
+import React, { createElement, useEffect, useState } from "react"
 import "./SchermoDadi.scss"
 import * as CgIcons from "react-icons/cg"
 import animazioneDado from "../../dadoBiancoritagliato.gif"
@@ -49,6 +49,8 @@ export default function SchermoDadi(props) {
   let risultato = numeroUscito1 + numeroUscito2
     window.sessionStorage.setItem("risultatoDadi", risultato)
 
+useEffect(() => {setRolling(false)}, [props.stop])
+
   return (
     <div
       className={`schermoDadiWrapper ` + `schermoDadiWrapper${props.statoTema}`}
@@ -56,14 +58,15 @@ export default function SchermoDadi(props) {
       <div className="schermoDadi">
         {rolling && !props.stop && <img className="animazioneDadi" src={animazioneDado}/>}
         {rolling && !props.stop  && <img className="animazioneDadi" src={animazioneDado}/>}
-        {props.stop  && iconaDado1}
-        {props.stop  && iconaDado2}
+        {rolling && !props.stop  && <h1 className="scrittaRolling">Rolling...</h1>}
+        {props.stop && iconaDado1}
+        {props.stop && iconaDado2}
       </div>
       <button
         className={`btnLanciaDadi ` + `btnLanciaDadi${props.statoTema}`}
         onClick={onClickLanciaDadi}
       >
-        LANCIA I DADI
+        ROLL
       </button>
     </div>
   )

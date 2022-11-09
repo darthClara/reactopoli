@@ -41,6 +41,7 @@
 }
 
 .btnLanciaDadi {
+    margin-left: -65px;
     padding: 2 5px 2 5px;
     color: white;
     border-radius: 5px;
@@ -65,4 +66,18 @@
     position: relative;
     width: 47%;
     opacity: 20%;
+}
+
+.scrittaRolling {
+    position: absolute;
+    font-size: 20px;
+    left: auto;
+    font-family: 'DePixel', sans-serif;
+    color: greenyellow;
+}
+
+.btnStop {
+    position: absolute;
+    left: 158px;
+    top: 87px;
 }

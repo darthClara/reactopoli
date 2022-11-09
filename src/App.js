@@ -28,23 +28,24 @@ function App() {
   }
 
   function muovi() {
-      let risultato = window.sessionStorage.getItem("risultatoDadi")
-      setPosizioneDellaPedina(risultato)
-      let parsato = parseInt(risultato)
-      let somma = parsato + risultatoDeiDadi
-      setRisultatoDeiDadi(somma)
-      setStop(true)
-      if (somma >= 37) {
-      let resto = (somma - 36)
+    let risultato = window.sessionStorage.getItem("risultatoDadi")
+    setPosizioneDellaPedina(risultato)
+    let parsato = parseInt(risultato)
+    let somma = parsato + risultatoDeiDadi
+    setRisultatoDeiDadi(somma)
+    setStop(true)
+    setTimeout(function() {setStop(false)}, 1000)
+    if (somma >= 37) {
+      let resto = somma - 36
       setRisultatoDeiDadi(resto)
       setPosizioneDellaPedina(1)
-      }
     }
+  }
 
   return (
     <div className={tema ? "app appClassico" : "app appFuturistico"}>
       <MenuIniziale utenteCreato={utenteCreato} />
-      <SchermoDadi statoTema={tema} stop={stop}/>
+      <SchermoDadi statoTema={tema} stop={stop} />
       <Togglestile statoTema={statoTema} />
       <Tabellone
         nome={utente.nome}
@@ -53,7 +54,12 @@ function App() {
         statoTema={tema}
         posizione={risultatoDeiDadi}
       />
-      <button onClick={muovi}>MUOVI</button>
+      <button
+        onClick={muovi}
+        className={`btnLanciaDadi btnLanciaDadi${tema} btnStop`}
+      >
+        STOP
+      </button>
     </div>
   )
 }
