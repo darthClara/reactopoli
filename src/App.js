@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./App.scss"
 import "./Zindex.scss"
 import SchermoDadi from "./components/schermodadi/SchermoDadi"
@@ -6,10 +6,13 @@ import Tabellone from "./components/tabellone/Tabellone"
 import Togglestile from "./components/togglestile/Togglestile"
 import "./components/terreni/StileRettangoli.scss"
 import MenuIniziale from "./components/menuIniziale/MenuIniziale"
+import { type } from "@testing-library/user-event/dist/type"
 
 function App() {
   const [tema, setTema] = useState(false);
   const [utente, setUtente] = useState("");
+  const [posizioneDellaPedina, setPosizioneDellaPedina] = useState(1);
+  const [risultatoDeiDadi, setRisultatoDeiDadi] = useState(1)
 
   const statoTema = (temaRicevutoDaToggle) => {
     setTema(temaRicevutoDaToggle)
@@ -19,19 +22,22 @@ function App() {
     return setUtente({pedina: pedinaScelta, nome: nomeInserito, id: idDellaPedina})
   }
 
-  let risultato = window.sessionStorage.getItem("risultatoDadi")
+function muovi() {
+    let risultato = window.sessionStorage.getItem("risultatoDadi")
+    setPosizioneDellaPedina(risultato)
+    let parsato = parseInt(risultato)
+    let somma = parsato + risultatoDeiDadi
+    setRisultatoDeiDadi(somma)
+  }
   
   
-  function risultatoDadi() {
-    return risultato ? risultato : 1
-  } 
-
   return (
     <div className={tema ? "app appClassico" : "app appFuturistico"}>
       <MenuIniziale utenteCreato={utenteCreato}/>
       <SchermoDadi statoTema={tema}/>
       <Togglestile statoTema={statoTema}/>
-      <Tabellone nome={utente.nome} immagine={utente.pedina} id={utente.id} statoTema={tema} posizione={risultatoDadi()}/>
+      <Tabellone nome={utente.nome} immagine={utente.pedina} id={utente.id} statoTema={tema} posizione={risultatoDeiDadi}/>
+      <button onClick={muovi}>MUOVI</button>
     </div>
   )
 }

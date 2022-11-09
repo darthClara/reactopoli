@@ -45,7 +45,6 @@ export default function SchermoDadi(props) {
 
   let risultato = numeroUscito1 + numeroUscito2
     window.sessionStorage.setItem("risultatoDadi", risultato)
-    console.log(risultato)
 
   return (
     <div
