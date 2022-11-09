@@ -13,6 +13,7 @@ function App() {
   const [utente, setUtente] = useState("")
   const [posizioneDellaPedina, setPosizioneDellaPedina] = useState(1)
   const [risultatoDeiDadi, setRisultatoDeiDadi] = useState(1)
+  const [stop, setStop] = useState(false)
 
   const statoTema = (temaRicevutoDaToggle) => {
     setTema(temaRicevutoDaToggle)
@@ -32,9 +33,9 @@ function App() {
       let parsato = parseInt(risultato)
       let somma = parsato + risultatoDeiDadi
       setRisultatoDeiDadi(somma)
+      setStop(true)
       if (somma >= 37) {
       let resto = (somma - 36)
-      console.log(resto)
       setRisultatoDeiDadi(resto)
       setPosizioneDellaPedina(1)
       }
@@ -43,7 +44,7 @@ function App() {
   return (
     <div className={tema ? "app appClassico" : "app appFuturistico"}>
       <MenuIniziale utenteCreato={utenteCreato} />
-      <SchermoDadi statoTema={tema} />
+      <SchermoDadi statoTema={tema} stop={stop}/>
       <Togglestile statoTema={statoTema} />
       <Tabellone
         nome={utente.nome}
