@@ -2,10 +2,12 @@ import React, { createElement, useState } from "react"
 import "./SchermoDadi.scss"
 import * as CgIcons from "react-icons/cg"
 
-export default function SchermoDadi({statoTema}) {
+export default function SchermoDadi(props) {
   const [numeroRandom, setNumeroRandom] = useState("1")
   const [iconaDado1, setIconaDado1] = useState()
   const [iconaDado2, setIconaDado2] = useState()
+  const [numeroUscito1, setNumeroUscito1] = useState([])
+  const [numeroUscito2, setNumeroUscito2] = useState([])
 
   function dadoUno() {
     const numero = SchermoDadi(1, 7)
@@ -15,6 +17,7 @@ export default function SchermoDadi({statoTema}) {
     numero === 4 && setIconaDado1(<CgIcons.CgDice4 className="dado" />)
     numero === 5 && setIconaDado1(<CgIcons.CgDice5 className="dado" />)
     numero === 6 && setIconaDado1(<CgIcons.CgDice6 className="dado" />)
+    setNumeroUscito1(numero)
   }
 
   function dadoDue() {
@@ -25,6 +28,7 @@ export default function SchermoDadi({statoTema}) {
     numero === 4 && setIconaDado2(<CgIcons.CgDice4 className="dado" />)
     numero === 5 && setIconaDado2(<CgIcons.CgDice5 className="dado" />)
     numero === 6 && setIconaDado2(<CgIcons.CgDice6 className="dado" />)
+    setNumeroUscito2(numero)
   }
 
   function SchermoDadi(min, max) {
@@ -39,13 +43,20 @@ export default function SchermoDadi({statoTema}) {
     dadoDue()
   }
 
+  console.log(numeroUscito1 + numeroUscito2)
+
   return (
-    <div className={`schermoDadiWrapper ` + `schermoDadiWrapper${statoTema}`}>
+    <div className={`schermoDadiWrapper ` + `schermoDadiWrapper${props.statoTema}`}>
       <div className="schermoDadi">
         {iconaDado1}
         {iconaDado2}
       </div>
-      <button className={`btnLanciaDadi ` + `btnLanciaDadi${statoTema}`} onClick={onClickLanciaDadi}>LANCIA I DADI</button>
+      <button
+        className={`btnLanciaDadi ` + `btnLanciaDadi${props.statoTema}`}
+        onClick={onClickLanciaDadi}
+      >
+        LANCIA I DADI
+      </button>
     </div>
   )
 }

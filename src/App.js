@@ -24,7 +24,7 @@ function App() {
       <MenuIniziale utenteCreato={utenteCreato}/>
       <SchermoDadi statoTema={tema}/>
       <Togglestile statoTema={statoTema}/>
-      <Tabellone nome={utente.nome} immagine={utente.pedina} id={utente.id} statoTema={tema} posizione={4}/>
+      <Tabellone nome={utente.nome} immagine={utente.pedina} id={utente.id} statoTema={tema} posizione={1}/>
     </div>
   )
 }
