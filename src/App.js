@@ -43,7 +43,8 @@ function App() {
 {useEffect(() => {tempoCheSiVedeIlRisultato()}, [risultatoDeiDadi])}
 
   function tempoCheSiVedeIlRisultato() {
-    setTimeout(function() {setStop(false)}, 1000)}
+    console.log("immediato");
+    setTimeout(function() {setStop(false)}, 2000)}
 
   return (
     <div className={tema ? "app appClassico" : "app appFuturistico"}>

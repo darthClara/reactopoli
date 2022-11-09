@@ -3,6 +3,7 @@
 .stileAngoliWrapper {
     width: 100%;
     height: 100%;
+    @include flex();
 
     &:hover {
         border: 3px solid black;
