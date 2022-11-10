@@ -1,7 +1,7 @@
 import React, { createElement, useEffect, useState } from "react"
 import "./SchermoDadi.scss"
 import * as CgIcons from "react-icons/cg"
-import animazioneDado from "../../dadoBiancoritagliato.gif"
+import animazioneDado from "../../contents/dadoBiancoritagliato.gif"
 
 export default function SchermoDadi(props) {
   const [numeroRandom, setNumeroRandom] = useState("1")

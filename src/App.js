@@ -6,6 +6,7 @@ import Tabellone from "./components/tabellone/Tabellone"
 import Togglestile from "./components/togglestile/Togglestile"
 import "./components/terreni/StileRettangoli.scss"
 import MenuIniziale from "./components/menuIniziale/MenuIniziale"
+import Console from "./components/console/Console"
 
 function App() {
   const [tema, setTema] = useState(false)
@@ -49,6 +50,7 @@ function App() {
     <div className={tema ? "app appClassico" : "app appFuturistico"}>
       <MenuIniziale utenteCreato={utenteCreato} />
       <SchermoDadi statoTema={tema} stop={stop} />
+      <Console nome={utente.nome}/>
       <Togglestile statoTema={statoTema} />
       <Tabellone
         nome={utente.nome}

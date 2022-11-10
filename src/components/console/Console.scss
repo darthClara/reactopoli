@@ -1,0 +1,132 @@
+@import "../../Mixins.scss";
+
+.consoleWrapper {
+    position: absolute;
+    left: 180px;
+    top: 10px;
+    padding: 5px;
+    border: 3.5px solid rgb(0, 0, 0);
+    box-shadow: 0 0 5px black;
+    @include flex();
+    width: 272px;
+    height: 200px;
+    border-radius: 20px;
+    background-color: rgb(111, 0, 89);
+}
+
+.pulsantieraConsole {
+    position: absolute;
+    left: -172px;
+    top: -2px;
+    padding: 5px;
+    border: 3.5px solid rgb(0, 0, 0);
+    box-shadow: 0 0 5px black;
+    @include flex();
+    width: 165px;
+    height: 145px;
+    border-radius: 20px;
+    background-color: rgb(62, 31, 64);
+
+    .bottonePulsantieraOnOff {
+        background-color: rgb(235, 166, 196);
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        position: relative;
+        margin-top: auto;
+        margin-left: auto;
+    }
+}
+
+.pulsantieratrue {
+    left: -172px;
+    top: 85px;
+    animation-name: apertura;
+    animation-duration: 2s;
+
+    @keyframes apertura {
+        from {
+            left: -172px;
+            top: -2px;
+        }
+
+        to {
+            left: -172px;
+            top: 85px;
+        }
+    }
+}
+
+.pulsantierafalse {
+    animation-name: chiusura;
+    animation-duration: 2s;
+
+    @keyframes chiusura {
+        from {
+            left: -172px;
+            top: 85px;
+        }
+
+        to {
+            left: -172px;
+            top: -2px;
+        }
+    }
+}
+
+.schermoConsole {
+    width: 99%;
+    height: 99%;
+    background-color: rgb(60, 115, 24);
+    border: 3.5px solid black;
+    border-radius: 15px;
+    padding: 10px 5px;
+    @include flex();
+    flex-direction: column;
+
+    .schermoSuperiore {
+        display: flex;
+        width: 100%;
+        height: 72%;
+        margin-bottom: auto;
+        background-color: rgb(72, 95, 20);
+        overflow: hidden;
+
+        .animazioneHello {
+            position: relative;
+            width: 100%;
+            height: 170%;
+            bottom: 20px;
+            opacity: 22%;
+            filter: grayscale(100%) brightness(165%) contrast(200%);
+        }
+    }
+
+    .schermoInferiore {
+        @include flex();
+        justify-content: space-around;
+        width: 100%;
+        height: 72%;
+        margin-top: auto;
+        background-color: rgb(72, 95, 20);
+        overflow: hidden;
+        text-align: center;
+        flex-direction: column;
+
+        .scritteConsole {
+            position: relative;
+            left: auto;
+            font-family: 'DePixel', sans-serif;
+            color: greenyellow;
+        }
+
+        .titoloConsole {
+            font-size: 13px;
+        }
+
+        .selettoreConsole {
+            font-size: 8px;
+            text-align: justify;
+        }
+    }
+}
