@@ -9,18 +9,13 @@ export default function Console(props) {
   let [pulsanteSX, setPulsanteSX] = useState(false)
   let [pulsanteDX, setPulsanteDX] = useState(false)
   let [pulsanteENT, setPulsanteENT] = useState(false)
-  //   let [opzioniSelettore, setOpzioniSelettore] = useState(["bene, dai", "insomma..."])
-  let [opzioniSelettore, setOpzioniSelettore] = useState([
-    "uno",
-    "due",
-    "tre",
-    "quattro",
-  ])
+  let [opzioniSelettore, setOpzioniSelettore] = useState([""])
 
   useEffect(() => {
     document
       .getElementsByClassName("wrapperSelettoreConsole")[0]
       .firstChild.firstChild.setAttribute("id", "opzioneSelezionata")
+    setOpzioniSelettore(["bene, dai", "insomma..."])
   }, [])
 
   function gestoreClickOnOffPulsantiera() {
@@ -36,6 +31,8 @@ export default function Console(props) {
 
   function gestorePulsanteENT() {
     setPulsanteENT(true)
+    let attuale = document.getElementById("opzioneSelezionata")
+    console.log(attuale.textContent);
   }
 
   function gestorePulsanteDX() {

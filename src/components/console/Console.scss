@@ -188,13 +188,14 @@
                 
                 .liSelettoreConsole {
                     font-family: 'DePixel', sans-serif;
-                    padding: 0 10px;
+                    padding: 3px 10px;
                 }
             }
 
             #opzioneSelezionata {   
                 @include flex;
-                background-color: rgba(181, 255, 107, 0.447);
+                border: 2px solid rgba(181, 255, 107, 0.447);
+                background-color: rgba(181, 255, 107, 0.176);
             }
 
         }
