@@ -1,5 +1,7 @@
 import "./Console.scss"
-import animazioneHello from "../../contents/hello.gif"
+import animazioneConsole from "../../contents/hello.gif"
+import animazioneVino from "../../contents/vino.gif"
+import animazioneGhigno from "../../contents/ghigno.gif"
 import { useEffect, useState } from "react"
 import * as FaIcons from "react-icons/fa"
 import SelettoreConsole from "./SelettoreConsole"
@@ -9,14 +11,47 @@ export default function Console(props) {
   let [pulsanteSX, setPulsanteSX] = useState(false)
   let [pulsanteDX, setPulsanteDX] = useState(false)
   let [pulsanteENT, setPulsanteENT] = useState(false)
+  let [testo, setTesto] = useState()
+  let [immagine, setImmagine] = useState()
   let [opzioniSelettore, setOpzioniSelettore] = useState([""])
+  let [risposta, setRisposta] = useState()
+  let [sessoUtente, setSessoUtente] = useState()
 
   useEffect(() => {
     document
       .getElementsByClassName("wrapperSelettoreConsole")[0]
       .firstChild.firstChild.setAttribute("id", "opzioneSelezionata")
+      setImmagine(<img className="animazioneConsole" src={animazioneConsole}/>)
+    setTesto(
+      <h3 className="scritteConsole titoloConsole">
+        Ehi...Ciao {props.nome}!<br />
+        Come va?
+      </h3>
+    )
     setOpzioniSelettore(["bene, dai", "insomma..."])
-  }, [])
+  }, [props.nome])
+
+  useEffect(() => {
+    risposta === "bene, dai" && setTesto(<h4 style={{fontSize: "8px"}} className="scritteConsole titoloConsole">Questo perché non hai ancora iniziato a giocare, ah ah ah.<br/>Di che genere sei?</h4>)
+    risposta === "bene, dai" && setImmagine(<img id="ghigno" className="animazioneConsole" src={animazioneGhigno}/>)
+    risposta === "insomma..." && setTesto(<h4 style={{fontSize: "8px"}} className="scritteConsole titoloConsole">Mi dispiace molto...ma per fortuna esiste il vino, dai!<br/>Di che genere sei?</h4>)
+    risposta === "insomma..." && setImmagine(<img className="animazioneConsole" src={animazioneVino}/>)
+    setOpzioniSelettore(["maschile", "femminile", "boh"])
+  }, [risposta])
+
+  useEffect(() => {
+   risposta === "maschile" && (setSessoUtente("M"))
+   risposta === "femminile" && setSessoUtente("F")
+   risposta === "boh" && setSessoUtente("B")
+  }, [risposta])
+
+
+  useEffect(() => {
+    sessoUtente == "M" && setTesto(<h4 style={{fontSize: "8px"}} className="scritteConsole titoloConsole">Va beh dai...capita. Piacere {props.nome}, io sono il DOM. Benvenuto a Reactopoli!</h4>)
+    sessoUtente == "F" && setTesto(<h4 style={{fontSize: "8px"}} className="scritteConsole titoloConsole">Benvenuta a Reactopoli, {props.nome}! Io sono il DOM</h4>)
+    sessoUtente == "B" && setTesto(<h4 style={{fontSize: "8px"}} className="scritteConsole titoloConsole">Capisco...Beh...Benvenutæ a Reactopoli, {props.nome}! Io sono il DOM</h4>)
+}, [sessoUtente])
+
 
   function gestoreClickOnOffPulsantiera() {
     setPulsantieraAperta(!pulsantieraAperta)
@@ -32,7 +67,7 @@ export default function Console(props) {
   function gestorePulsanteENT() {
     setPulsanteENT(true)
     let attuale = document.getElementById("opzioneSelezionata")
-    console.log(attuale.textContent);
+    setRisposta(attuale.textContent)
   }
 
   function gestorePulsanteDX() {
@@ -73,13 +108,10 @@ export default function Console(props) {
       </div>
       <div className="schermoConsole">
         <div className="schermoSuperiore">
-          <img className="animazioneHello" src={animazioneHello} />
+          {immagine}
         </div>
         <div className="schermoInferiore">
-          <h3 className="scritteConsole titoloConsole">
-            Ehi...Ciao {props.nome}!<br />
-            Come va?
-          </h3>
+          {testo}
           <div className="scritteConsole wrapperSelettoreConsole">
             <SelettoreConsole opzioni={opzioniSelettore} />
           </div>
