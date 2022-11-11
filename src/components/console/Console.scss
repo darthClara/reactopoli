@@ -174,9 +174,29 @@
             font-size: 13px;
         }
 
-        .selettoreConsole {
-            font-size: 8px;
-            text-align: justify;
+        .wrapperSelettoreConsole {
+            width: 100%;
+            font-size: 12px;
+
+            .ulSelettoreConsole {
+                padding: unset;
+                width: 100%;
+                display: flex;
+                list-style: none;
+                align-items: center;
+                justify-content: space-evenly;
+                
+                .liSelettoreConsole {
+                    font-family: 'DePixel', sans-serif;
+                    padding: 0 10px;
+                }
+            }
+
+            #opzioneSelezionata {   
+                @include flex;
+                background-color: rgba(181, 255, 107, 0.447);
+            }
+
         }
     }
 }
