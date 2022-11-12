@@ -1,3 +1,5 @@
+import { isClickableInput } from "@testing-library/user-event/dist/utils"
+
 export const DatiAngoli = [
   {
     angoli: {
@@ -21,4 +23,3 @@ export const DatiAngoli = [
     },
   },
 ]
-
