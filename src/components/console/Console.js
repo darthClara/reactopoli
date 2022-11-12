@@ -8,6 +8,7 @@ import animazioneSheldon from "../../contents/sheldon.gif"
 import animazioneCosino from "../../contents/cosino.gif"
 import animazioneWtf from "../../contents/wtf.gif"
 import animazioneDr from "../../contents/dr.gif"
+import animazioneAhah from "../../contents/ahah.gif"
 import { useEffect, useState } from "react"
 import * as FaIcons from "react-icons/fa"
 import SelettoreConsole from "./SelettoreConsole"
@@ -162,10 +163,10 @@ export default function Console(props) {
     risposta === "Sono confusæ" &&
       setTesto(
         <h4
-          style={{ fontSize: "10px" }}
+          style={{ fontSize: "9px" }}
           className="scritteConsole titoloConsole"
         >
-          Ma sì, non ci pensare. Vuoi sentire una barzelletta? Te la racconto:
+          Sai, le lumache sono ermafrodite, quindi...Ma sì, non ci pensare. Vuoi sentire una barzelletta? Te la racconto:
           Un PC uccide una periferica USB per errore. Al processo afferma, tra
           le lacrime: "Non l'avevo riconosciuta!".
         </h4>
@@ -180,7 +181,8 @@ export default function Console(props) {
           style={{ fontSize: "9px" }}
           className="scritteConsole titoloConsole"
         >
-          E come fai a cliccare i tasti se sei una lumaca?
+          Questo spiega molte cose, perché le lumache sono ermafrodite, ma come
+          fai a cliccare i tasti se sei una lumaca?
         </h4>
       )
     risposta === "Sono una lumaca" &&
@@ -188,27 +190,38 @@ export default function Console(props) {
   }, [risposta])
 
   useEffect(() => {
+    risposta === "ahahah" && setOpzioniSelettore([])
+    risposta === "ahahah" && setSchermoInferiore(false)
+    risposta === "ahahah" && setImmagine(<img className="animazioneConsole" src={animazioneAhah}/>)
+    
     risposta === "non fa ridere" &&
       setTesto(
         <h4
-          style={{ fontSize: "7px" }}
+          style={{ fontSize: "8px" }}
           className="scritteConsole titoloConsole"
         >
-          Non è vero, faceva molto ridere, ma voi esseri umana avete
+          Non è vero, faceva molto ridere invece, ma voi esseri umana avete
           un'intelligenza troppo limitata per poter comprendere il mio sarcasmo.
         </h4>
       )
-      risposta === "non fa ridere" && setSchermoSuperiore(true)
-      risposta === "non fa ridere" &&
+      risposta === "non fa ridere" && setOpzioniSelettore([])
+    risposta === "non fa ridere" && setSchermoSuperiore(true)
+    risposta === "non fa ridere" &&
       setImmagine(<img className="animazioneConsole" src={animazioneDr} />)
+    setTimeout(() => {risposta === "non fa ridere" && setConsoleAperta(false)}, 6000) 
 
-      risposta === "non posso rispondere perché non ho le mani" && setSchermoSuperiore(true)
-      risposta === "non posso rispondere perché non ho le mani" && setSchermoInferiore(false)
-      risposta === "non posso rispondere perché non ho le mani" && setImmagine(<img className="animazioneConsole" src={animazioneWtf} />)
-      setTimeout(() => {
-        risposta === "non posso rispondere perché non ho le mani" && setConsoleAperta(false)
-        risposta === "non posso rispondere perché non ho le mani" && setSchermoInferiore(true)
-      }, 2000)
+    risposta === "non posso rispondere perché non ho le mani" &&
+      setSchermoSuperiore(true)
+    risposta === "non posso rispondere perché non ho le mani" &&
+      setSchermoInferiore(false)
+    risposta === "non posso rispondere perché non ho le mani" &&
+      setImmagine(<img className="animazioneConsole" src={animazioneWtf} />)
+    setTimeout(() => {
+      risposta === "non posso rispondere perché non ho le mani" &&
+        setConsoleAperta(false)
+      risposta === "non posso rispondere perché non ho le mani" &&
+        setSchermoInferiore(true)
+    }, 2000)
   }, [risposta])
 
   function gestoreClickOnOffPulsantiera() {
@@ -248,9 +261,7 @@ export default function Console(props) {
   }
 
   return (
-    <div
-      className={`consoleWrapper consoleWrapper${consoleAperta}`}
-    >
+    <div className={`consoleWrapper consoleWrapper${consoleAperta}`}>
       <div className={`pulsantieraConsole pulsantiera${pulsantieraAperta}`}>
         <h4 className="scrittaTastierino">TASTIERINO</h4>
         <button

@@ -163,7 +163,7 @@
     left: -172px;
     top: 75px;
     animation-name: apertura;
-    animation-duration: 2s;
+    animation-duration: 1s;
 
     @keyframes apertura {
         from {
@@ -180,7 +180,7 @@
 
 .pulsantierafalse {
     animation-name: chiusura;
-    animation-duration: 2s;
+    animation-duration: 1s;
 
     @keyframes chiusura {
         from {
