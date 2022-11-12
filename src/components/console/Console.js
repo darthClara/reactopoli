@@ -13,7 +13,7 @@ import { unstable_renderSubtreeIntoContainer } from "react-dom"
 
 export default function Console(props) {
   let [consoleAperta, setConsoleAperta] = useState(true)
-  let [pulsantieraAperta, setPulsantieraAperta] = useState(false)
+  let [pulsantieraAperta, setPulsantieraAperta] = useState(true)
   let [pulsanteSX, setPulsanteSX] = useState(false)
   let [pulsanteDX, setPulsanteDX] = useState(false)
   let [pulsanteENT, setPulsanteENT] = useState(false)
@@ -116,11 +116,10 @@ export default function Console(props) {
     sessoUtente == "B" &&
       setTesto(
         <h4
-          style={{ fontSize: "8px" }}
+          style={{ fontSize: "9px" }}
           className="scritteConsole titoloConsole"
         >
-          Perché credi che il genere sia un costrutto sociale, perché non sai
-          dove controllare, o perché sei una lumaca?
+          Perché credi che il genere sia un costrutto sociale o perché sei una lumaca?
         </h4>
       )
   }, [sessoUtente])
@@ -155,27 +154,27 @@ export default function Console(props) {
         </h4>
       )
     risposta === "Certo che sì!" && setSchermoSuperiore(false)
-    risposta === "Certo che sì!" && setOpzioniSelettore(["ahahah", "...", "non fa ridere"])
-
+    risposta === "Certo che sì!" && setOpzioniSelettore(["ahahah", "non fa ridere"])
+    risposta === "Sono confusæ" && setSchermoSuperiore(false)
     risposta === "Sono confusæ" &&
       setTesto(
         <h4
-          style={{ fontSize: "7px" }}
+          style={{ fontSize: "10px" }}
           className="scritteConsole titoloConsole"
         >
           Va beh dai...non ci pensare. Vuoi sentire una barzelletta? Te la
-          racconto: Paoletto va da suo padre, e gli fa: "papà papà, mi sono
-          fidanzato con Mariuccia, la figlia del fornaio!"
+          racconto: Un PC uccide una periferica USB per errore. Al processo afferma,
+          tra le lacrime: "Non l'avevo riconosciuta!".
         </h4>
       )
     risposta === "Sono confusæ" && setSchermoSuperiore(false)
     risposta === "Sono confusæ" &&
-      setOpzioniSelettore(["...", "Ma io non volevo sent..."])
-
+      setOpzioniSelettore(["ahahah", "non fa ridere"])
+      risposta === "Sono una lumaca" && setSchermoSuperiore(false)
     risposta === "Sono una lumaca" &&
       setTesto(
         <h4
-          style={{ fontSize: "8px" }}
+          style={{ fontSize: "9px" }}
           className="scritteConsole titoloConsole"
         >
           E come fai a cliccare i tasti se sei una lumaca?
