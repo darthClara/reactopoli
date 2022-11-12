@@ -21,9 +21,9 @@ export default function Togglestile({ statoTema }) {
   }
 
   let iconaDelTema = !toggleStile ? (
-    <GiIcons.GiTopHat className="iconaDelTemaClassico" />
+    <FaIcons.FaYinYang className="iconaDelTemaClassico" />
   ) : (
-    <FaIcons.FaRedhat className="iconaDelTemaFuturistico" />
+    <FaIcons.FaYinYang className="iconaDelTemaFuturistico" />
   )
 
   return (

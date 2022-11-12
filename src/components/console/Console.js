@@ -249,7 +249,6 @@ export default function Console(props) {
 
   return (
     <div
-      onClick={clickaperturaConsole}
       className={`consoleWrapper consoleWrapper${consoleAperta}`}
     >
       <div className={`pulsantieraConsole pulsantiera${pulsantieraAperta}`}>
@@ -291,7 +290,7 @@ export default function Console(props) {
           />
         </button>
       </div>
-      <div className="schermoConsole">
+      <div onClick={clickaperturaConsole} className="schermoConsole">
         <div className={`schermoSuperiore schermoSuperiore${schermoSuperiore}`}>
           {consoleAperta ? (
             immagine
