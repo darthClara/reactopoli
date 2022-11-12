@@ -6,14 +6,15 @@ import animazioneInchino from "../../contents/inchino.gif"
 import animazionePensoso from "../../contents/pensoso.gif"
 import animazioneSheldon from "../../contents/sheldon.gif"
 import animazioneCosino from "../../contents/cosino.gif"
+import animazioneWtf from "../../contents/wtf.gif"
+import animazioneDr from "../../contents/dr.gif"
 import { useEffect, useState } from "react"
 import * as FaIcons from "react-icons/fa"
 import SelettoreConsole from "./SelettoreConsole"
-import { unstable_renderSubtreeIntoContainer } from "react-dom"
 
 export default function Console(props) {
   let [consoleAperta, setConsoleAperta] = useState(true)
-  let [pulsantieraAperta, setPulsantieraAperta] = useState(true)
+  let [pulsantieraAperta, setPulsantieraAperta] = useState(false)
   let [pulsanteSX, setPulsanteSX] = useState(false)
   let [pulsanteDX, setPulsanteDX] = useState(false)
   let [pulsanteENT, setPulsanteENT] = useState(false)
@@ -119,7 +120,8 @@ export default function Console(props) {
           style={{ fontSize: "9px" }}
           className="scritteConsole titoloConsole"
         >
-          Perché credi che il genere sia un costrutto sociale o perché sei una lumaca?
+          Perché credi che il genere sia un costrutto sociale o perché sei una
+          lumaca?
         </h4>
       )
   }, [sessoUtente])
@@ -149,12 +151,13 @@ export default function Console(props) {
           style={{ fontSize: "10px" }}
           className="scritteConsole titoloConsole"
         >
-          Un PC uccide una periferica USB per errore. Al processo afferma,
-          tra le lacrime: "Non l'avevo riconosciuta!".
+          Un PC uccide una periferica USB per errore. Al processo afferma, tra
+          le lacrime: "Non l'avevo riconosciuta!".
         </h4>
       )
     risposta === "Certo che sì!" && setSchermoSuperiore(false)
-    risposta === "Certo che sì!" && setOpzioniSelettore(["ahahah", "non fa ridere"])
+    risposta === "Certo che sì!" &&
+      setOpzioniSelettore(["ahahah", "non fa ridere"])
     risposta === "Sono confusæ" && setSchermoSuperiore(false)
     risposta === "Sono confusæ" &&
       setTesto(
@@ -162,15 +165,15 @@ export default function Console(props) {
           style={{ fontSize: "10px" }}
           className="scritteConsole titoloConsole"
         >
-          Va beh dai...non ci pensare. Vuoi sentire una barzelletta? Te la
-          racconto: Un PC uccide una periferica USB per errore. Al processo afferma,
-          tra le lacrime: "Non l'avevo riconosciuta!".
+          Ma sì, non ci pensare. Vuoi sentire una barzelletta? Te la racconto:
+          Un PC uccide una periferica USB per errore. Al processo afferma, tra
+          le lacrime: "Non l'avevo riconosciuta!".
         </h4>
       )
     risposta === "Sono confusæ" && setSchermoSuperiore(false)
     risposta === "Sono confusæ" &&
       setOpzioniSelettore(["ahahah", "non fa ridere"])
-      risposta === "Sono una lumaca" && setSchermoSuperiore(false)
+    risposta === "Sono una lumaca" && setSchermoSuperiore(false)
     risposta === "Sono una lumaca" &&
       setTesto(
         <h4
@@ -182,6 +185,30 @@ export default function Console(props) {
       )
     risposta === "Sono una lumaca" &&
       setOpzioniSelettore(["non posso rispondere perché non ho le mani"])
+  }, [risposta])
+
+  useEffect(() => {
+    risposta === "non fa ridere" &&
+      setTesto(
+        <h4
+          style={{ fontSize: "7px" }}
+          className="scritteConsole titoloConsole"
+        >
+          Non è vero, faceva molto ridere, ma voi esseri umana avete
+          un'intelligenza troppo limitata per poter comprendere il mio sarcasmo.
+        </h4>
+      )
+      risposta === "non fa ridere" && setSchermoSuperiore(true)
+      risposta === "non fa ridere" &&
+      setImmagine(<img className="animazioneConsole" src={animazioneDr} />)
+
+      risposta === "non posso rispondere perché non ho le mani" && setSchermoSuperiore(true)
+      risposta === "non posso rispondere perché non ho le mani" && setSchermoInferiore(false)
+      risposta === "non posso rispondere perché non ho le mani" && setImmagine(<img className="animazioneConsole" src={animazioneWtf} />)
+      setTimeout(() => {
+        risposta === "non posso rispondere perché non ho le mani" && setConsoleAperta(false)
+        risposta === "non posso rispondere perché non ho le mani" && setSchermoInferiore(true)
+      }, 2000)
   }, [risposta])
 
   function gestoreClickOnOffPulsantiera() {
