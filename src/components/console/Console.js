@@ -5,12 +5,14 @@ import animazioneGhigno from "../../contents/ghigno.gif"
 import animazioneInchino from "../../contents/inchino.gif"
 import animazionePensoso from "../../contents/pensoso.gif"
 import animazioneSheldon from "../../contents/sheldon.gif"
+import animazioneCosino from "../../contents/cosino.gif"
 import { useEffect, useState } from "react"
 import * as FaIcons from "react-icons/fa"
 import SelettoreConsole from "./SelettoreConsole"
 import { unstable_renderSubtreeIntoContainer } from "react-dom"
 
 export default function Console(props) {
+  let [consoleAperta, setConsoleAperta] = useState(true)
   let [pulsantieraAperta, setPulsantieraAperta] = useState(false)
   let [pulsanteSX, setPulsanteSX] = useState(false)
   let [pulsanteDX, setPulsanteDX] = useState(false)
@@ -20,6 +22,7 @@ export default function Console(props) {
   let [opzioniSelettore, setOpzioniSelettore] = useState([""])
   let [risposta, setRisposta] = useState()
   let [sessoUtente, setSessoUtente] = useState()
+  let [schermoInferiore, setSchermoInferiore] = useState(true)
 
   useEffect(() => {
     document
@@ -123,53 +126,61 @@ export default function Console(props) {
 
   useEffect(() => {
     risposta === "ehm...no. Grazie." &&
-    setTesto(
+      setTesto(
         <h4
           style={{ fontSize: "8px" }}
-          className="scritteConsole titoloConsole">
+          className="scritteConsole titoloConsole"
+        >
           ...
         </h4>
       )
-      risposta === "ehm...no. Grazie." &&
-      setOpzioniSelettore([])
-      risposta === "ehm...no. Grazie." &&
-      setImmagine(<img className="animazioneConsole" src={animazioneSheldon} />)
-      
-      risposta === "Certo che sì!" && setTesto(
+      risposta === "ehm...no. Grazie." && setSchermoInferiore(false)
+    risposta === "ehm...no. Grazie." && setOpzioniSelettore([])
+    risposta === "ehm...no. Grazie." && setImmagine(<img className="animazioneConsole" src={animazioneSheldon} />)
+      setTimeout(() => {risposta === "ehm...no. Grazie." &&
+      risposta === "ehm...no. Grazie." && setConsoleAperta(false)
+      risposta === "ehm...no. Grazie." && setSchermoInferiore(true)
+      }, 8000)
+
+    risposta === "Certo che sì!" &&
+      setTesto(
         <h4
           style={{ fontSize: "8px" }}
-          className="scritteConsole titoloConsole">
+          className="scritteConsole titoloConsole"
+        >
           Paoletto va da suo padre, e gli fa: "papà papà, mi sono fidanzato!"
-          "Bello di papà, che gioia! E con chi?"
-        "Con Mariuccia, la figlia del fornaio!"
-        </h4>
-      ) 
-      risposta === "Certo che sì!" &&
-      setOpzioniSelettore(["e che gli ha risposto il padre?"])
-
-      risposta === "Sono confusæ" &&
-    setTesto(
-        <h4
-          style={{ fontSize: "7px" }}
-          className="scritteConsole titoloConsole">
-          Va beh dai...non ci pensare. Vuoi sentire una barzelletta? Te la racconto:
-          Paoletto va da suo padre, e gli fa: "papà papà, mi sono fidanzato con Mariuccia, la figlia del fornaio!"
-        </h4>
-      ) 
-      risposta === "Sono confusæ" &&
-      setOpzioniSelettore(["...", "Ma io non volevo sent..."])
-
-      risposta === "Sono una lumaca" &&
-    setTesto(
-        <h4
-          style={{ fontSize: "8px" }}
-          className="scritteConsole titoloConsole">
-         E come fai a cliccare i tasti se sei una lumaca?
+          "Bello di papà, che gioia! E con chi?" "Con Mariuccia, la figlia del
+          fornaio!"
         </h4>
       )
-      risposta === "Sono una lumaca" &&
+    risposta === "Certo che sì!" &&
+      setOpzioniSelettore(["e che gli ha risposto il padre?"])
+
+    risposta === "Sono confusæ" &&
+      setTesto(
+        <h4
+          style={{ fontSize: "7px" }}
+          className="scritteConsole titoloConsole"
+        >
+          Va beh dai...non ci pensare. Vuoi sentire una barzelletta? Te la
+          racconto: Paoletto va da suo padre, e gli fa: "papà papà, mi sono
+          fidanzato con Mariuccia, la figlia del fornaio!"
+        </h4>
+      )
+    risposta === "Sono confusæ" &&
+      setOpzioniSelettore(["...", "Ma io non volevo sent..."])
+
+    risposta === "Sono una lumaca" &&
+      setTesto(
+        <h4
+          style={{ fontSize: "8px" }}
+          className="scritteConsole titoloConsole"
+        >
+          E come fai a cliccare i tasti se sei una lumaca?
+        </h4>
+      )
+    risposta === "Sono una lumaca" &&
       setOpzioniSelettore(["non posso rispondere perché non ho le mani"])
-      
   }, [risposta])
 
   function gestoreClickOnOffPulsantiera() {
@@ -200,14 +211,24 @@ export default function Console(props) {
     precedente.removeAttribute("id")
   }
 
+  function gestoreRiduci() {
+    setConsoleAperta(false)
+  }
+
+  function clickaperturaConsole() {
+    !consoleAperta && setConsoleAperta(true)
+  } 
+
   return (
-    <div className="consoleWrapper">
+    <div onClick={clickaperturaConsole} className={`consoleWrapper consoleWrapper${consoleAperta}`}>
       <div className={`pulsantieraConsole pulsantiera${pulsantieraAperta}`}>
         <h4 className="scrittaTastierino">TASTIERINO</h4>
         <button
           className={`bottonePulsantieraOnOff`}
           onClick={gestoreClickOnOffPulsantiera}
-        ></button>
+        >
+            <FaIcons.FaMinusCircle className="iconaOnOffPulsantiera"/>
+        </button>
       </div>
       <div className={`pulsantiera2Console`}>
         <button
@@ -228,10 +249,17 @@ export default function Console(props) {
         >
           <FaIcons.FaRegArrowAltCircleRight className="iconeTastiConsole" />
         </button>
+        <button
+        style={{backgroundColor: "rgb(235, 166, 196)"}}
+          onClick={gestoreRiduci}
+          className={`tastiConsoleDS`}
+        >
+          <FaIcons.FaMinusCircle style={{fontSize: "100%", color: "black"}} className="iconeTastiConsole" />
+        </button>
       </div>
       <div className="schermoConsole">
-        <div className="schermoSuperiore">{immagine}</div>
-        <div className="schermoInferiore">
+        <div className="schermoSuperiore">{consoleAperta ? immagine : <img className="animazioneConsole" src={animazioneCosino}/>}</div>
+        <div className={`schermoInferiore schermoInferiore${schermoInferiore}`}>
           {testo}
           <div className="scritteConsole wrapperSelettoreConsole">
             <SelettoreConsole opzioni={opzioniSelettore} />

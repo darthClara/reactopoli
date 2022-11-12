@@ -14,6 +14,67 @@
     background-color: rgb(111, 0, 89);
 }
 
+.consoleWrappertrue {
+
+    animation-name: chiusuraConsole;
+    animation-duration: 4s;
+
+    @keyframes aperturaConsole {
+        from {
+            width: 60px;
+            height: 60px;
+        }
+
+        to {
+            width: 272px;
+            height: 200px;
+        }
+    }
+    .pulsantiera2Console {
+        display: flex;
+    }
+}
+
+.consoleWrapperfalse {
+    width: 60px;
+    height: 60px;
+    animation-name: chiusuraConsole;
+    animation-duration: 4s;
+
+    @keyframes chiusuraConsole {
+        from {
+            width: 272px;
+            height: 200px;
+        }
+
+        to {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    .pulsantiera2Console {
+        display: none;
+    }
+
+    .schermoConsole {
+        padding: 0px;
+        
+        .schermoSuperiore {
+            height: 100%;
+            border-radius: 10px;
+            img {
+                bottom: 7px;
+                height: 129%;
+            }
+        }
+
+        .schermoInferiore {
+            display: none;
+        }
+    }
+}
+
 .pulsantiera2Console {
     position: absolute;
     left: -2px;
@@ -78,6 +139,7 @@
     }
 
     .bottonePulsantieraOnOff {
+        @include flex();
         background-color: rgb(235, 166, 196);
         width: 20px;
         height: 20px;
@@ -85,6 +147,11 @@
         position: relative;
         margin-top: auto;
         margin-left: auto;
+
+        .iconaOnOffPulsantiera {
+            position: absolute;
+            font-size: 100%;
+        }
     }
 }
 
@@ -137,7 +204,7 @@
     .schermoSuperiore {
         display: flex;
         width: 100%;
-        height: 72%;
+        height: 100%;
         margin-bottom: auto;
         background-color: rgb(72, 95, 20);
         overflow: hidden;
@@ -161,7 +228,7 @@
         @include flex();
         justify-content: space-around;
         width: 100%;
-        height: 72%;
+        height: 100%;
         margin-top: auto;
         background-color: rgb(72, 95, 20);
         overflow: hidden;
@@ -190,14 +257,14 @@
                 list-style: none;
                 align-items: center;
                 justify-content: space-evenly;
-                
+
                 .liSelettoreConsole {
                     font-family: 'DePixel', sans-serif;
                     padding: 3px 10px;
                 }
             }
 
-            #opzioneSelezionata {   
+            #opzioneSelezionata {
                 @include flex;
                 border: 2px solid rgba(181, 255, 107, 0.447);
                 background-color: rgba(181, 255, 107, 0.176);
@@ -205,4 +272,13 @@
 
         }
     }
+
+    .schermoInferiorefalse {
+        display: none;
+
+      }
+
+      .schermoInferioretrue {
+          display: flex;
+      }
 }
