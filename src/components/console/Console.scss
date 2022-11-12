@@ -16,7 +16,7 @@
 
 .consoleWrappertrue {
 
-    animation-name: chiusuraConsole;
+    animation-name: aperturaConsole;
     animation-duration: 4s;
 
     @keyframes aperturaConsole {
@@ -279,6 +279,15 @@
       }
 
       .schermoInferioretrue {
+          display: flex;
+      }
+
+      .schermoSuperiorefalse {
+        display: none;
+
+      }
+
+      .schermoSuperioretrue {
           display: flex;
       }
 }
